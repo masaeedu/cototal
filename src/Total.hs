@@ -20,7 +20,7 @@ instance (Empty a, Empty b) => Empty (Either a b)
 _case :: Empty a => a -> x
 _case = impossible
 
-on :: Prism i r l Void -> (l -> o) -> (r -> o) -> i -> o
+on :: Prism s t a Void -> (a -> o) -> (t -> o) -> s -> o
 on (Prism _ m) l r = either r l . m
 
 total :: Either Char Int -> String     -- Same as:
